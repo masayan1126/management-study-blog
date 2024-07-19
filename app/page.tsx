@@ -15,6 +15,11 @@ type Article = {
       url: string;
     };
   };
+  _published_at: string;
+  poster: string;
+  time_required: {
+    single_line_1: string;
+  };
 };
 
 export default function Home() {
@@ -24,7 +29,7 @@ export default function Home() {
   useEffect(() => {
     fetch(`https://cms-api.nilto.com/v1/contents/${1977407693}/`, {
       headers: {
-        "X-NILTO-API-KEY": "QL40CfT4KGbNh7VN53H2AToBRZFyPqLU5XjjOimSTyTabDUw",
+        "X-NILTO-API-KEY": process.env.NEXT_PUBLIC_NILTO_API_KEY ?? "",
       },
     })
       .then((response) => response.json())
